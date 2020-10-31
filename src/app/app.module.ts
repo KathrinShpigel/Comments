@@ -8,6 +8,8 @@ import { CommentsListComponent } from './comments-list/comments-list.component';
 import { CommentComponent } from './comment/comment.component';
 import { CommentsService } from './comments.service';
 
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +19,8 @@ import { CommentsService } from './comments.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

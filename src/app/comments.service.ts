@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
+import { UUID } from 'angular2-uuid';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CommentsService {
+  uuidValue: string;
 
   data: any = [
     {
@@ -28,11 +30,6 @@ export class CommentsService {
       comments: [
         {
           msg: 'c3.1',
-          comments: [
-            {
-              msg: 'c3.2',
-            }
-          ]
         },
         {
           msg: 'c3.2',
@@ -40,6 +37,26 @@ export class CommentsService {
       ],
     }
   ];
+
+  generateUUID(): string {
+    this.uuidValue = UUID.UUID();
+    return this.uuidValue;
+  }
+
+  addComment(msg, id?): void {
+    if (!id) {
+      this.data.push({
+        id: this.generateUUID(),
+        msg
+      });
+    } else {
+      this.data.forEach(el => {
+        if (el.id === id) {
+          el.comments.push(msg);
+        }
+      });
+    }
+  }
 
   constructor() { }
 }

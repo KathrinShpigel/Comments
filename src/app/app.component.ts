@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'comment-app';
   data: [];
 
-  constructor (cs: CommentsService) {
+  constructor(cs: CommentsService) {
     this.data = cs.data;
   }
 }
