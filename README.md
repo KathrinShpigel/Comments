@@ -1,6 +1,6 @@
 # Deploy
 
-[Comments-app](kathrinshpigel-comments.netlify.app/)
+[Comments-app](https://kathrinshpigel-comments.netlify.app/)
 
 # CommentApp
 
