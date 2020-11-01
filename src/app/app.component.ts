@@ -9,7 +9,6 @@ import { CommentsService } from './comments.service';
 export class AppComponent {
   title = 'comment-app';
   data: [];
-  isClick = false;
 
   constructor(cs: CommentsService) {
     this.data = cs.data;

@@ -19,6 +19,14 @@ export class CommentComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  change(state): boolean {
+    if (state) {
+      this.cs.id = null;
+      this.isClick = false;
+    }
+    return true;
+  }
+
   replyClick(): void {
     if (this.isClick) {
       this.cs.id = null;
@@ -26,6 +34,7 @@ export class CommentComponent implements OnInit {
     } else {
       this.cs.id = this.comment.id;
       this.isClick = true;
+      this.cs.stateSubmit = false;
     }
   }
 

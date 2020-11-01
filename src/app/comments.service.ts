@@ -8,6 +8,11 @@ export class CommentsService {
   uuidValue: string;
   id: string;
   data: any = this.getData() || [];
+  stateSubmit = false;
+
+  isClickSubmit(): void {
+    this.stateSubmit = true;
+  }
 
   getData(): any {
     if (localStorage.getItem('data') !== null) {
@@ -23,16 +28,14 @@ export class CommentsService {
 
   addComment(msg: string, id?: string): void {
     if (!id) {
-      this.data.push({
-        id: this.generateUUID(),
-        msg
-      });
+      this.data.push({id: this.generateUUID(), msg, comments: []});
     } else {
       this.data.forEach(el => {
         if (el.id === id) {
-          el.comments ? el.comments.push({msg}) : el.comments = [{msg}];
+          el.comments.push({id: this.generateUUID(), msg});
         }
       });
+      this.isClickSubmit();
     }
     localStorage.setItem('data', JSON.stringify(this.data));
   }

@@ -3,14 +3,14 @@
     {{ comment.msg }}
   </div>
   <div class="comment__footer">
-    <ng-container *ngIf="comment.id">
+    <ng-container *ngIf="comment.comments">
       <span class="comment__reply">
         <a class="comment__reply-btn" href="#" (click)="replyClick()">Reply</a>
       </span>
     </ng-container>
   </div>
 
-  <ng-container *ngIf="isClick">
+  <ng-container *ngIf="change(cs.stateSubmit) && !cs.stateSubmit && isClick">
     <app-comment-input-field></app-comment-input-field>
   </ng-container>
 </div>
