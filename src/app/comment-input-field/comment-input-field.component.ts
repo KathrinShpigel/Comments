@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { from } from 'rxjs';
 import { CommentsService } from '../comments.service';
 
 @Component({
@@ -8,6 +9,8 @@ import { CommentsService } from '../comments.service';
 })
 
 export class CommentInputFieldComponent implements OnInit {
+  @Input() comment: any;
+
   cs: CommentsService;
   value: string;
 
@@ -19,7 +22,9 @@ export class CommentInputFieldComponent implements OnInit {
   }
 
   handleClick(): void {
-    this.cs.addComment(this.value);
-    this.value = '';
+    if (this.value) {
+      this.cs.addComment(this.value, this.cs.id);
+      this.value = '';
+    }
   }
 }

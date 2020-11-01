@@ -1,10 +1,16 @@
 <div class="comment__body">
   <div class="comment__content">
-    {{ comment }}
+    {{ comment.msg }}
   </div>
   <div class="comment__footer">
-    <span class="comment__reply">
-      <a class="comment__reply-btn" href="#">Reply</a>
-    </span>
+    <ng-container *ngIf="comment.id">
+      <span class="comment__reply">
+        <a class="comment__reply-btn" href="#" (click)="replyClick()">Reply</a>
+      </span>
+    </ng-container>
   </div>
+
+  <ng-container *ngIf="isClick">
+    <app-comment-input-field></app-comment-input-field>
+  </ng-container>
 </div>
