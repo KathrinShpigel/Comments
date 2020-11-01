@@ -7,15 +7,21 @@ import { UUID } from 'angular2-uuid';
 export class CommentsService {
   uuidValue: string;
   id: string;
+  data: any = this.getData() || [];
 
-  data: any = [];
+  getData(): any {
+    if (localStorage.getItem('data') !== null) {
+      this.data = JSON.parse(localStorage.getItem('data'));
+    }
+    return this.data;
+  }
 
   generateUUID(): string {
     this.uuidValue = UUID.UUID();
     return this.uuidValue;
   }
 
-  addComment(msg, id?): void {
+  addComment(msg: string, id?: string): void {
     if (!id) {
       this.data.push({
         id: this.generateUUID(),
@@ -28,6 +34,7 @@ export class CommentsService {
         }
       });
     }
+    localStorage.setItem('data', JSON.stringify(this.data));
   }
 
   constructor() { }
