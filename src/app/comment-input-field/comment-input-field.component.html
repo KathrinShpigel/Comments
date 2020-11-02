@@ -1,6 +1,6 @@
 <div class="comments__header">
   <div class="comments__input">
-    <textarea class="comments__field" name="commentsField" [(ngModel)]="value" placeholder="Enter some text" cols="30" rows="5" autofocus></textarea>
+    <textarea class="comments__field"  [ngClass]="{'comments__field_disabled': cs.someInput && firstInput}" name="commentsField" [(ngModel)]="value" placeholder="Enter some text" cols="30" rows="5" autofocus></textarea>
   </div>
   <input class="comments__btn"  [ngClass]="{'comments__btn_disabled': cs.someInput && firstInput}" type="submit" value="Submit" (click)="handleClick()">
 </div>
