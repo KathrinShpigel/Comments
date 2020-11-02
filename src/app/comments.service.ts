@@ -10,7 +10,7 @@ export class CommentsService {
   data: any = this.getData() || [];
   stateSubmit = false;
   someInput = false;
-  amountInput = 1;
+  firstInput = true;
 
   constructor() {
   }

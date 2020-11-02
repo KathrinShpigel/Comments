@@ -10,11 +10,11 @@ export class AppComponent {
   title = 'comment-app';
   cs: CommentsService;
   data: any;
-  amountInput: number;
+  firstInput: boolean;
 
   constructor(cs: CommentsService) {
     this.cs = cs;
     this.data = this.cs.data;
-    this.amountInput = this.cs.amountInput;
+    this.firstInput = this.cs.firstInput;
   }
 }
