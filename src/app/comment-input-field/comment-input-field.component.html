@@ -2,5 +2,5 @@
   <div class="comments__input">
     <textarea class="comments__field" name="commentsField" [(ngModel)]="value" placeholder="Enter some text" cols="30" rows="5" autofocus></textarea>
   </div>
-  <input class="comments__btn" type="submit" value="Submit" (click)="handleClick()">
+  <input class="comments__btn"  [ngClass]="{'comments__btn_disabled': cs.someInput && amountInput}" type="submit" value="Submit" (click)="handleClick()">
 </div>

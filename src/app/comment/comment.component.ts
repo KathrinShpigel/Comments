@@ -23,6 +23,7 @@ export class CommentComponent implements OnInit {
     if (state) {
       this.cs.id = null;
       this.isClick = false;
+      this.cs.someInput = false;
     }
     return true;
   }
@@ -31,10 +32,12 @@ export class CommentComponent implements OnInit {
     if (this.isClick) {
       this.cs.id = null;
       this.isClick = false;
+      this.cs.someInput = false;
     } else {
       this.cs.id = this.comment.id;
       this.isClick = true;
       this.cs.stateSubmit = false;
+      this.cs.someInput = true;
     }
   }
 

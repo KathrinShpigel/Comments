@@ -8,9 +8,13 @@ import { CommentsService } from './comments.service';
 })
 export class AppComponent {
   title = 'comment-app';
-  data: [];
+  cs: CommentsService;
+  data: any;
+  amountInput: number;
 
   constructor(cs: CommentsService) {
-    this.data = cs.data;
+    this.cs = cs;
+    this.data = this.cs.data;
+    this.amountInput = this.cs.amountInput;
   }
 }

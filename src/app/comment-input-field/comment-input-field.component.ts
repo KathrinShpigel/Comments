@@ -10,6 +10,7 @@ import { CommentsService } from '../comments.service';
 
 export class CommentInputFieldComponent implements OnInit {
   @Input() comment: any;
+  @Input() amountInput: number;
 
   cs: CommentsService;
   value: string;

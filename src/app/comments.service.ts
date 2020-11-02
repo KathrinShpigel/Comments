@@ -9,6 +9,11 @@ export class CommentsService {
   id: string;
   data: any = this.getData() || [];
   stateSubmit = false;
+  someInput = false;
+  amountInput = 1;
+
+  constructor() {
+  }
 
   isClickSubmit(): void {
     this.stateSubmit = true;
@@ -37,8 +42,7 @@ export class CommentsService {
       });
       this.isClickSubmit();
     }
+    this.someInput = false;
     localStorage.setItem('data', JSON.stringify(this.data));
   }
-
-  constructor() { }
 }

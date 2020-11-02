@@ -1,5 +1,5 @@
 <div class="comments">
-  <app-comment-input-field></app-comment-input-field>
+  <app-comment-input-field [amountInput]="amountInput"></app-comment-input-field>
   <ng-container *ngFor="let comment of data">
     <app-comments-list [comment]="comment"></app-comments-list>
   </ng-container>
